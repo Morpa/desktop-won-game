@@ -1,44 +1,98 @@
-# Electron with Typescript application example
+<div align="center" id="top"> 
+  <img src="./.github/app.gif" alt="Desktop Won Game" />
 
-This example show how you can use Next.js inside an Electron application to avoid a lot of configuration, use Next.js router as view and use server-render to speed up the initial render of the application. Both Next.js and Electron layers are written in TypeScript and compiled to JavaScript during the build process.
+  &#xa0;
 
-| Part       | Source code (Typescript) | Builds (JavaScript) |
-| ---------- | ------------------------ | ------------------- |
-| Next.js    | `/renderer`              | `/renderer`         |
-| Electron   | `/electron-src`          | `/main`             |
-| Production |                          | `/dist`             |
+  <!-- <a href="https://desktopwongame.netlify.app">Demo</a> -->
+</div>
 
-For development it's going to run a HTTP server and let Next.js handle routing. In production it use `next export` to pre-generate HTML static files and use them in your app instead of running an HTTP server.
+<h1 align="center">Desktop Won Game</h1>
 
-**You can find a detailed documentation about how to build Electron apps with Next.js [here](https://leo.im/2017/electron-next)!**
+<p align="center">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/Morpa/desktop-won-game?color=56BEB8">
 
-## How to use
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/Morpa/desktop-won-game?color=56BEB8">
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/Morpa/desktop-won-game?color=56BEB8">
+
+  <img alt="License" src="https://img.shields.io/github/license/Morpa/desktop-won-game?color=56BEB8">
+
+  <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/Morpa/desktop-won-game?color=56BEB8" /> -->
+
+  <!-- <img alt="Github forks" src="https://img.shields.io/github/forks/Morpa/desktop-won-game?color=56BEB8" /> -->
+
+  <!-- <img alt="Github stars" src="https://img.shields.io/github/stars/Morpa/desktop-won-game?color=56BEB8" /> -->
+</p>
+
+<!-- Status -->
+
+ <h4 align="center"> 
+	🚧  Desktop Won Game 🚀 Under construction...  🚧
+</h4> 
+
+<hr> 
+
+<p align="center">
+  <a href="#dart-about">About</a> &#xa0; | &#xa0; 
+  <a href="#sparkles-features">Features</a> &#xa0; | &#xa0;
+  <a href="#rocket-technologies">Technologies</a> &#xa0; | &#xa0;
+  <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
+  <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
+  <a href="#memo-license">License</a> &#xa0; | &#xa0;
+  <a href="https://github.com/Morpa" target="_blank">Author</a>
+</p>
+
+<br>
+
+## :dart: About ##
+
+Describe your project
+
+## :sparkles: Features ##
+
+:heavy_check_mark: Feature 1;\
+:heavy_check_mark: Feature 2;\
+:heavy_check_mark: Feature 3;
+
+## :rocket: Technologies ##
+
+The following tools were used in this project:
+
+- [Expo](https://expo.io/)
+- [Node.js](https://nodejs.org/en/)
+- [React](https://pt-br.reactjs.org/)
+- [React Native](https://reactnative.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+
+## :white_check_mark: Requirements ##
+
+Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
+
+## :checkered_flag: Starting ##
 
 ```bash
-npx create-next-app --example with-electron-typescript with-electron-typescript-app
-# or
-yarn create next-app --example with-electron-typescript with-electron-typescript-app
+# Clone this project
+$ git clone https://github.com/Morpa/desktop-won-game
+
+# Access
+$ cd desktop-won-game
+
+# Install dependencies
+$ yarn
+
+# Run the project
+$ yarn start
+
+# The server will initialize in the <http://localhost:3000>
 ```
 
-Available commands:
+## :memo: License ##
 
-```bash
-"build-renderer": build and transpile Next.js layer
-"build-electron": transpile electron layer
-"build": build both layers
-"dev": start dev version
-"dist": create production elctron build
-"type-check": check TypeScript in project
-```
+This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
 
-## Notes
 
-You can create the production app using `npm run dist`.
+Made with :heart: by <a href="https://github.com/Morpa" target="_blank">Morpa</a>
 
-_note regarding types:_
+&#xa0;
 
-- Electron provides its own type definitions, so you don't need @types/electron installed!
-  source: https://www.npmjs.com/package/@types/electron
-- There were no types available for `electron-next` at the time of creating this example, so until they are available there is a file `electron-next.d.ts` in `electron-src` directory.
+<a href="#top">Back to top</a>

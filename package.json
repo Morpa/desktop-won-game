@@ -1,9 +1,9 @@
 {
-  "name": "with-electron-typescript",
+  "name": "desktop-won-game",
   "version": "1.0.0",
   "license": "MIT",
   "main": "main/index.js",
-  "productName": "ElectronTypescriptNext",
+  "productName": "WonGames",
   "scripts": {
     "build": "yarn build-renderer && yarn build-electron",
     "build-electron": "tsc -p electron-src",
@@ -14,6 +14,17 @@
     "pack-app": "yarn build && electron-builder --dir",
     "type-check": "tsc"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*": [
+      "yarn lint --fix",
+      "yarn test --findRelatedTests --bail"
+    ]
+  },
   "dependencies": {
     "electron-is-dev": "^1.1.0",
     "electron-next": "^3.1.5",
@@ -21,6 +32,12 @@
     "react-dom": "^17.0.0"
   },
   "devDependencies": {
+    "@styled-icons/material-outlined": "^10.18.0",
+    "@styled-icons/remix-fill": "^10.18.0",
+    "polished": "^4.0.3",
+    "react-slick": "^0.27.12",
+    "styled-components": "5.2.0",
+    "styled-media-query": "^2.1.2",
     "@types/node": "^14.14.6",
     "@types/react": "^16.9.9",
     "@types/react-dom": "^16.9.9",
@@ -28,6 +45,31 @@
     "electron-builder": "^22.9.1",
     "next": "latest",
     "rimraf": "^3.0.0",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-typescript": "^7.12.1",
+    "@storybook/addon-essentials": "6.0.28",
+    "@storybook/react": "6.0.28",
+    "@testing-library/jest-dom": "^5.11.5",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.9",
+    "@types/jest": "^26.0.15",
+    "@types/react-slick": "^0.23.4",
+    "@types/styled-components": "^5.1.4",
+    "@typescript-eslint/eslint-plugin": "^4.6.0",
+    "@typescript-eslint/parser": "^4.6.0",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-styled-components": "^1.11.1",
+    "eslint": "^7.12.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^4.3.0",
+    "jest": "^26.6.1",
+    "jest-styled-components": "^7.0.3",
+    "lint-staged": "^10.5.0",
+    "plop": "^2.7.4",
+    "prettier": "^2.1.2",
     "typescript": "^4.0.5"
   },
   "build": {
