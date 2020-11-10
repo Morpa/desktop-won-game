@@ -7,12 +7,18 @@
   "scripts": {
     "build": "yarn build-renderer && yarn build-electron",
     "build-electron": "tsc -p electron-src",
-    "build-renderer": "next build renderer && next export renderer",
-    "clean": "rimraf dist main renderer/out renderer/.next",
+    "build-renderer": "next build src && next export src",
+    "clean": "rimraf dist main src/out src/.next",
     "dev": "yarn build-electron && electron .",
     "dist": "yarn build && electron-builder",
     "pack-app": "yarn build && electron-builder --dir",
-    "type-check": "tsc"
+    "lint": "eslint src --max-warnings=0",
+    "typecheck": "tsc --project tsconfig.json --noEmit",
+    "test": "jest",
+    "test:watch": "yarn test --watch",
+    "generate": "yarn plop --plopfile generators/plopfile.js",
+    "storybook": "start-storybook -s ./public -p 6006",
+    "build-storybook": "build-storybook -s ./public"
   },
   "husky": {
     "hooks": {
@@ -74,23 +80,10 @@
     "typescript": "^4.0.5"
   },
   "build": {
-    "appId": "com.morpa.wongames",
-    "productName": "Won Games",
+    "asar": true,
     "files": [
-      "dist/"
-    ],
-    "mac": {
-      "category": "public.app-category.games"
-    },
-    "linux": {
-      "target": [
-        "AppImage"
-      ],
-      "category": "Games"
-    },
-    "directories": {
-      "buildResources": "build",
-      "output": "release"
-    }
+      "main",
+      "renderer/out"
+    ]
   }
 }
