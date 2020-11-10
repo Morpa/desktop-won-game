@@ -1,23 +1,54 @@
-// Native
 import { join } from 'path'
 import { format } from 'url'
 
-// Packages
-import { BrowserWindow, app, ipcMain, IpcMainEvent } from 'electron'
+import {
+  BrowserWindow,
+  app,
+  ipcMain,
+  IpcMainEvent,
+  nativeImage,
+  MenuItemConstructorOptions,
+  Menu
+} from 'electron'
 import isDev from 'electron-is-dev'
 import prepareNext from 'electron-next'
 
-// Prepare the renderer once the app is ready
 app.on('ready', async () => {
   await prepareNext('./renderer')
 
+  const icon = nativeImage.createFromPath(`${app.getAppPath()}/build/icon.png`)
+
+  if (app.dock) {
+    app.dock.setIcon(icon)
+  }
+
+  const template: MenuItemConstructorOptions[] = [
+    {
+      label: 'View',
+      submenu: [
+        { role: 'reload' },
+        { role: 'forceReload' },
+        { role: 'toggleDevTools' },
+        { type: 'separator' },
+        { role: 'resetZoom' },
+        { role: 'zoomIn' },
+        { role: 'zoomOut' },
+        { type: 'separator' },
+        { role: 'togglefullscreen' }
+      ]
+    }
+  ]
+
+  const menu = Menu.buildFromTemplate(template)
+  Menu.setApplicationMenu(menu)
+
   const mainWindow = new BrowserWindow({
-    width: 800,
+    width: 1000,
     height: 600,
     webPreferences: {
       nodeIntegration: false,
-      preload: join(__dirname, 'preload.js'),
-    },
+      preload: join(__dirname, 'preload.js')
+    }
   })
 
   const url = isDev
@@ -25,16 +56,14 @@ app.on('ready', async () => {
     : format({
         pathname: join(__dirname, '../renderer/out/index.html'),
         protocol: 'file:',
-        slashes: true,
+        slashes: true
       })
 
   mainWindow.loadURL(url)
 })
 
-// Quit the app once all windows are closed
 app.on('window-all-closed', app.quit)
 
-// listen the channel `message` and resend the received message to the renderer process
-ipcMain.on('message', (event: IpcMainEvent, message: any) => {
+ipcMain.on('message', (event: IpcMainEvent, message: string) => {
   event.sender.send('message', message)
 })

@@ -6,6 +6,7 @@ const IndexPage = () => {
     <Layout title="Home | Next.js + TypeScript + Electron Example">
       <h1>Hello Next.js 👋</h1>
       <p>
+        <img src="/img/logo.svg" alt="" />
         <Link href="/about">
           <a>About</a>
         </Link>
