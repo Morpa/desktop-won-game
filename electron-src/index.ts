@@ -12,9 +12,12 @@ import {
 } from 'electron'
 import isDev from 'electron-is-dev'
 import prepareNext from 'electron-next'
+import { autoUpdater } from 'electron-updater'
 
 app.on('ready', async () => {
   await prepareNext('./renderer')
+
+  autoUpdater.checkForUpdatesAndNotify()
 
   const icon = nativeImage.createFromPath(`${app.getAppPath()}/build/icon.png`)
 
